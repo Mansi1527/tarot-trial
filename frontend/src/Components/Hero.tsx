@@ -18,7 +18,7 @@ export const Hero = () => {
   useEffect(() => {
     const fetchSlots = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/slots/");
+        const response = await fetch(`${process.env.BACKENDROUTE}/api/slots/`);
         const data = await response.json();
         setSlots(data);
       } catch (error) {
@@ -92,7 +92,7 @@ export const Hero = () => {
   
             // ✅ Wait for `orderId` state update before sending email
             setTimeout(async () => {
-              const bookingResponse = await fetch("http://localhost:5000/api/slots/book", {
+              const bookingResponse = await fetch(`${process.env.BACKENDROUTE}/api/slots/book`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
