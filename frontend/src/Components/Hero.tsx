@@ -18,7 +18,7 @@ export const Hero = () => {
   useEffect(() => {
     const fetchSlots = async () => {
       try {
-        const response = await fetch(`${process.env.BACKENDROUTE}/api/slots/`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKENDROUTE}/api/slots/`);
         const data = await response.json();
         setSlots(data);
       } catch (error) {
