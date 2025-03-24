@@ -63,7 +63,7 @@ export const Hero = () => {
     setLoading(true);
   
     try {
-      const response = await fetch("/api/create-order", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKENDROUTE}/api/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: user.amount }),
