@@ -1,10 +1,12 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-  pageExtensions: ['tsx', 'ts'], 
-  trailingSlash: false,
-  output: "standalone",
-  // Ensures TSX/TS files are recognized
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  output: "export", // Ensures Next.js generates static HTML files
+  distDir: "out",   // Next.js will output static files here
+  images: {
+    unoptimized: true, // Ensures compatibility with static hosting
+  },
+  trailingSlash: true, // Fixes potential 404 issues
 };
 
-export default nextConfig;
+module.exports = nextConfig;
